@@ -42,7 +42,9 @@ describe('MoviesService', () => {
         service.getOne(999);
       } catch (e) {
         expect(e).toBeInstanceOf(NotFoundException);
-        expect(e.message).toEqual('Movie with id 999 not found');
+        expect((e as NotFoundException).message).toEqual(
+          'Movie with id 999 not found',
+        );
       }
     });
   });
@@ -69,7 +71,9 @@ describe('MoviesService', () => {
         service.deleteOne(999);
       } catch (e) {
         expect(e).toBeInstanceOf(NotFoundException);
-        expect(e.message).toEqual('Movie with id 999 not found');
+        expect((e as NotFoundException).message).toEqual(
+          'Movie with id 999 not found',
+        );
       }
     });
   });
@@ -118,7 +122,9 @@ describe('MoviesService', () => {
         });
       } catch (e) {
         expect(e).toBeInstanceOf(NotFoundException);
-        expect(e.message).toEqual('Movie with id 999 not found');
+        expect((e as NotFoundException).message).toEqual(
+          'Movie with id 999 not found',
+        );
       }
     });
   });
